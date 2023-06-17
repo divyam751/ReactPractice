@@ -1,4 +1,3 @@
-// import { cleanup } from "@testing-library/react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -20,8 +19,9 @@ const Timer = () => {
     }, 1000);
 
     const cleanup = () => {
-      console.log("cleanup called");
       clearInterval(intervalId);
+      console.clear();
+      console.log("cleanup called");
     };
     return cleanup;
   }, []);
