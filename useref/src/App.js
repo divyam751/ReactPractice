@@ -1,9 +1,9 @@
 import "./App.css";
-import UseRef from "./Components/UseRef";
+import Like from "./Components/Like";
 function App() {
   return (
     <div className='App'>
-      <UseRef />
+      <Like />
     </div>
   );
 }
