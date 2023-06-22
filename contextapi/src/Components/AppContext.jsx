@@ -1,21 +1,19 @@
-// Create Context
-// Provider
+// Create AppContext
+//Provider
 // Consume
 
 import { createContext } from "react";
 
-//Create Context
+// Create Context
 
 export const AppContext = createContext();
 
 //Provider
 
 export default function AppContextProvider({ children }) {
-  const appName = "Rohit";
-  const login = () => {};
+  const appName = "ContextAPI";
+
   return (
-    <AppContext.Provider value={{ appName, login }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ appName }}>{children}</AppContext.Provider>
   );
 }
