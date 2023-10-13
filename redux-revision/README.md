@@ -20,7 +20,55 @@
 - - store.js
 - - action.js
 - - reducer.js
+- - actionType.js
 
 # create store
 
 - reducer function ---> state,action => {type, payload}
+
+# store.js
+
+```javascript
+import { legacy_createStore } from "redux";
+import { reducer } from "./reducer";
+const intitialState = {
+  count: 10,
+};
+
+export const store = legacy_createStore(reducer, intitialState);
+```
+
+# reducer.js
+
+```javascript
+import { ADD_ONE, SUB_ONE } from "./actionType";
+
+export const reducer = (state, { type, payload }) => {
+  switch (type) {
+    case ADD_ONE:
+      return { ...state, count: state.count + payload };
+    case SUB_ONE:
+      return { ...state, count: state.count - payload };
+    default:
+      return state;
+  }
+};
+```
+
+# action.js
+
+```javascript
+export const ADD_ACTION = () => {
+  return { type: "ADD_ONE", payload: 1 };
+};
+export const SUB_ACTION = () => {
+  return { type: "SUB_ONE", payload: 1 };
+};
+```
+
+# actionType.js
+
+```javascript
+export const ADD_ONE = "ADD_ONE";
+export const SUB_ONE = "SUB_ONE";
+```
